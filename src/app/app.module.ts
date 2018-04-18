@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import {NewExpensePage} from "../pages/new-expense/new-expense";
 import {ExpenseService} from "../services/expense.services";
 import {AngularFireModule} from "angularfire2";
+import { LoginPage } from '../pages/login/login';
+import {AngularFireAuth} from "angularfire2/auth";
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAV0pXv7j4Mhd32W5-yk27IFEvr_4AghyI",
@@ -23,7 +25,8 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    NewExpensePage
+    NewExpensePage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -34,12 +37,14 @@ export const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    NewExpensePage
+    NewExpensePage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     ExpenseService,
+    AngularFireAuth,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
