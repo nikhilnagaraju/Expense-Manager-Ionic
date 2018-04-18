@@ -45,8 +45,15 @@
 
 
 
+  <!--<ion-list>-->
+    <!--<ion-item *ngFor="let expense of expenses">{{ expense.title }}</ion-item>-->
+  <!--</ion-list>-->
+
+
   <ion-list>
-    <ion-item *ngFor="let expense of expenses">{{ expense.title }}</ion-item>
+    <ion-item *ngFor="let item of items | async">
+      {{item | json}}
+    </ion-item>
   </ion-list>
 
   <!--<ion-fab right bottom>-->

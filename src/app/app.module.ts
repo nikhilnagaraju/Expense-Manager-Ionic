@@ -10,6 +10,9 @@ import {NewExpensePage} from "../pages/new-expense/new-expense";
 import {ExpenseService} from "../services/expense.services";
 import {AngularFireModule} from "angularfire2";
 
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyAV0pXv7j4Mhd32W5-yk27IFEvr_4AghyI",
   authDomain: "expense-manager-f7ab1.firebaseapp.com",
@@ -28,7 +31,9 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,6 +45,7 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     ExpenseService,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
