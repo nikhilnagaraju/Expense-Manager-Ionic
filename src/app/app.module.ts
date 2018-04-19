@@ -11,6 +11,8 @@ import {ExpenseService} from "../services/expense.services";
 import {AngularFireModule} from "angularfire2";
 import { LoginPage } from '../pages/login/login';
 import {AngularFireAuth} from "angularfire2/auth";
+import {AuthService} from "../services/auth.services";
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAV0pXv7j4Mhd32W5-yk27IFEvr_4AghyI",
@@ -45,6 +47,7 @@ export const firebaseConfig = {
     SplashScreen,
     ExpenseService,
     AngularFireAuth,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
