@@ -18,22 +18,23 @@
     Just another page which you tired to traverse.
   </p>
 
-  <!--(ngSubmit)="onAddPlace(f.value)" #f="ngForm"-->
-  <form (ngSubmit)="onAddExpense(f.value)" #f="ngForm">
+  <form [formGroup]="addExpenseForm" (submit)="addExpense()" novalidate>
+
     <ion-item >
       <ion-label floating>Expense Title</ion-label>
-      <ion-input type="text" name="title" required [ngModel]></ion-input>
+      <ion-input type="text" formControlName="expenseTitle"></ion-input>
     </ion-item>
 
     <ion-item >
       <ion-label fixed>Amount</ion-label>
-      <ion-input type="number" name="amount" required [ngModel]></ion-input>
+      <ion-input type="number" formControlName="expenseAmount" ></ion-input>
     </ion-item>
 
-    <div text-center="">
-      <button ion-button block type="submit" [disabled]="!f.valid">Add Expense</button>
+    <div text-center>
+      <button ion-button block type="submit" [disabled]="!addExpenseForm.valid">Add Expense</button>
     </div>
 
   </form>
+
 
 </ion-content>
