@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-avatar item-left>
+      <img [src]="userProfile?.photoURL" alt="User Profile Picture" />
+    </ion-avatar>
+    <h2>{{ userProfile?.displayName }}</h2>
+    <p>{{ userProfile?.email }}</p>
+    <p>{{ userIdinfo }}</p>
+  </ion-item>
+
+</ion-content>
