@@ -3,6 +3,7 @@ import {IonicPage, NavController, Loading, LoadingController, AlertController, A
 import {ExpenseService} from "../../services/expense.services";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
+import {AuthProvider} from "../../providers/auth/auth";
 
 /**
  * Generated class for the NewExpensePage page.
@@ -20,18 +21,22 @@ export class NewExpensePage {
 
 
   public addExpenseForm: FormGroup;
+  public userIdinfo: string;
 
   constructor( public navCtrl: NavController,
                public navParams: NavParams ,
                public loadingCtrl: LoadingController,
                public alertCtrl: AlertController,
                public firestoreProvider: FirestoreProvider,
+               public authProvider: AuthProvider,
                formBuilder: FormBuilder
     ) {
     this.addExpenseForm = formBuilder.group({
       expenseTitle: ['', Validators.required],
       expenseAmount: ['', Validators.required],
     });
+    let simple = JSON.parse(JSON.stringify(this.authProvider.getUser()));
+    this.userIdinfo = simple["uid"];
   }
 
   addExpense(): void {
@@ -42,7 +47,7 @@ export class NewExpensePage {
     const expenseAmount = this.addExpenseForm.value.expenseAmount;
 
     this.firestoreProvider
-      .createExpense(expenseTitle, expenseAmount)
+      .createExpense(expenseTitle, expenseAmount, this.userIdinfo)
       .then(
         () => {
           loading.dismiss().then(() => {
