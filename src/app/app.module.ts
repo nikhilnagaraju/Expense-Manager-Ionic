@@ -9,8 +9,12 @@ import { HomePage } from '../pages/home/home';
 import {NewExpensePage} from "../pages/new-expense/new-expense";
 import {ExpenseService} from "../services/expense.services";
 import {AngularFireModule} from "angularfire2";
-import { LoginPage } from '../pages/login/login';
-import {AngularFireAuth} from "angularfire2/auth";
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+// import { LoginPage } from '../pages/login/login';
+import { GooglePlus } from '@ionic-native/google-plus';
+// import {AngularFireAuth} from "angularfire2/auth";
+import { AuthProvider } from '../providers/auth/auth';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAV0pXv7j4Mhd32W5-yk27IFEvr_4AghyI",
@@ -26,25 +30,29 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     NewExpensePage,
-    LoginPage
+    // LoginPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     NewExpensePage,
-    LoginPage
+    // LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     ExpenseService,
-    AngularFireAuth,
+    // AngularFireAuth,
+    AuthProvider,
+    GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
