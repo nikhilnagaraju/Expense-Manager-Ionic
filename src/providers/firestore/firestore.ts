@@ -35,7 +35,9 @@ export class FirestoreProvider {
     return this.firestore.collection(`${collectionName}`);
   }
 
-
+  deleteExpense(documentId: string, collectionName: string): Promise<void> {
+    return this.firestore.doc(`${collectionName}/${documentId}`).delete();
+  }
 }
 
 

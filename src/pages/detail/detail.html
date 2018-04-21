@@ -20,7 +20,7 @@
 
 
 
-  <button ion-button  icon-left  style="text-transform: none;" >
+  <button ion-button  icon-left  style="text-transform: none;" (click)="deleteExpense(expense.id, expense.title)" >
     <ion-icon  name="trash"></ion-icon>
     <p>  Delete Expense</p>
   </button>
