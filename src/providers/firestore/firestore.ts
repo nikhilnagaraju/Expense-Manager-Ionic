@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { Expense } from '../../models/expense.interface';
+import {AngularFirestoreCollection} from "angularfire2/firestore";
 
 /*
   Generated class for the FirestoreProvider provider.
@@ -28,6 +29,10 @@ export class FirestoreProvider {
       expenseTitle,
       expenseAmount,
     });
+  }
+
+  getExpenseList(collectionName : string): AngularFirestoreCollection<Expense> {
+    return this.firestore.collection(`${collectionName}`);
   }
 
 
