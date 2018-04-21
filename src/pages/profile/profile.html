@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Profile</ion-title>
   </ion-navbar>
 
@@ -17,5 +17,12 @@
     <p>{{ userProfile?.email }}</p>
     <p>{{ userIdinfo }}</p>
   </ion-item>
+
+  <ion-list text-center>
+    <button  style="text-transform: none;" ion-button icon-left>
+      <ion-icon  name="logo-google"></ion-icon>
+      Logout
+    </button>
+  </ion-list>
 
 </ion-content>

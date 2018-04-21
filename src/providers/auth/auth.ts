@@ -35,4 +35,8 @@ export class AuthProvider {
       })
       .catch(err => console.error('Error: ', err));
   }
+
+  // googlelogout(): Promise<any>  {
+  //   return this.googlePlus.logout().then(() => this.afAuth = null);
+  // }
 }

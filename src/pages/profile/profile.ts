@@ -17,6 +17,10 @@ export class ProfilePage {
     public authProvider: AuthProvider
   ) {}
 
+  // logout(){
+  //   this.authProvider.googlelogout();
+  // }
+
   ionViewDidLoad() {
     this.userProfile = this.authProvider.getUser();
     let simple = JSON.parse(JSON.stringify(this.authProvider.getUser()));
