@@ -40,8 +40,7 @@ export class AuthProvider {
   }
 
   //logout function
-  googlelogout(): Promise<any>  {
-    console.log("inside auth function");
-    return this.googlePlus.logout().then(() => this.afAuth = null);
+  googlelogout(): Promise<void> {
+    return this.afAuth.auth.signOut();
   }
 }

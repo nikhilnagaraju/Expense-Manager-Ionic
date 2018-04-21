@@ -1,6 +1,7 @@
-import { AuthProvider } from './../../providers/auth/auth';
+import { AuthProvider } from '../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {LoginPage} from "../login/login";
 
 @IonicPage()
 @Component({
@@ -18,10 +19,9 @@ export class ProfilePage {
   ) {}
 
   //logout helper function
-  logout(){
-    this.authProvider.googlelogout().then(() =>{
-      this.navCtrl.popToRoot(); // goto root page on logout
-    });
+  logout() {
+    this.authProvider.googlelogout();
+    this.navCtrl.setRoot(LoginPage);
   }
 
   ionViewDidLoad() {
