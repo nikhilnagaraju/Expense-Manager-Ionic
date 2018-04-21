@@ -12,9 +12,7 @@ import {AngularFireModule} from "angularfire2";
 import {AngularFirestoreModule} from "angularfire2/firestore";
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-// import { LoginPage } from '../pages/login/login';
 import { GooglePlus } from '@ionic-native/google-plus';
-// import {AngularFireAuth} from "angularfire2/auth";
 import { AuthProvider } from '../providers/auth/auth';
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { Dialogs } from '@ionic-native/dialogs';
@@ -33,7 +31,6 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     NewExpensePage,
-    // LoginPage
   ],
   imports: [
     BrowserModule,
@@ -48,18 +45,16 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     NewExpensePage,
-    // LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     ExpenseService,
-    // AngularFireAuth,
     AuthProvider,
     GooglePlus,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirestoreProvider,
     Dialogs,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 export class AppModule {}

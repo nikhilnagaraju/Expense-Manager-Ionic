@@ -1,3 +1,15 @@
 page-profile {
+  ion-avatar {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+
+  ion-avatar img {
+    max-width: 15rem;
+    max-height: 15rem;
+    border-radius: 20rem;
+    border: 5px solid color($colors, light);
+  }
 
 }

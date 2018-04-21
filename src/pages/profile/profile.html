@@ -8,15 +8,16 @@
 
 
 <ion-content padding>
+  <ion-card padding>
+  <ion-avatar >
+    <img [src]="userProfile?.photoURL" alt="User Profile Picture" />
+  </ion-avatar>
 
-  <ion-item>
-    <ion-avatar item-left>
-      <img [src]="userProfile?.photoURL" alt="User Profile Picture" />
-    </ion-avatar>
-    <h2>{{ userProfile?.displayName }}</h2>
-    <p>{{ userProfile?.email }}</p>
-    <p>{{ userIdinfo }}</p>
-  </ion-item>
+    <br>
+    <p>Name : <b>{{ userProfile?.displayName }}</b></p>
+    <p>Email : <b>{{ userProfile?.email }}</b></p>
+    <!--<p>{{ userIdinfo }}</p>-->
+  </ion-card>
 
   <ion-list text-center>
     <button  style="text-transform: none;" ion-button icon-left>

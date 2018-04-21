@@ -26,7 +26,7 @@
       <ion-row>
         <ion-col>
           <ion-card>
-            <h1 >27</h1>
+                <h1 > ₹ 1200</h1>
             <p>Total Expense</p>
           </ion-card>
         </ion-col>
@@ -46,7 +46,7 @@
   <ion-card class="lesspadding" item-left *ngFor="let expense of expenseList | async" (click)="showexpense(expense)">
 
     <ion-item>
-      <span item-start>{{ expense.title }} - </span>
+      <span item-start>{{ expense.title }}  </span>
       <button ion-button outline item-end> ₹ {{ expense.amount }} </button>
     </ion-item>
 

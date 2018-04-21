@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <p>
-    Just another page which you tired to traverse.
+    Add your expense with appropriate title/description.
   </p>
 
   <form [formGroup]="addExpenseForm" (submit)="addExpense()" novalidate>
@@ -30,6 +30,7 @@
       <ion-input type="number" formControlName="expenseAmount" ></ion-input>
     </ion-item>
 
+    <br>
     <div text-center>
       <button ion-button block type="submit" [disabled]="!addExpenseForm.valid">Add Expense</button>
     </div>

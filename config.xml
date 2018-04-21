@@ -3,7 +3,7 @@
     <name>expense-manager</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.0.103:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -81,4 +81,13 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.2.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
+    <allow-navigation href="http://localhost:8100" />
+    <allow-navigation href="http://192.168.0.100:8100" />
+    <allow-navigation href="http://192.168.0.103:8100" />
+    <plugin name="cordova-plugin-statusbar" spec="^2.4.2" />
+    <plugin name="cordova-plugin-googleplus" spec="^5.3.0">
+        <variable name="97639711298-N349NH9A8JN6427Q84OIH09JTSTK48BE.APPS.GOOGLEUSERCONTENT.COM" value="myreversedclientid" />
+    </plugin>
+    <plugin name="cordova-plugin-dialogs" spec="^2.0.1" />
+    <engine name="android" spec="7.0.0" />
 </widget>

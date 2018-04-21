@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {IonicPage, NavController, Loading, LoadingController, AlertController, Alert, NavParams,} from 'ionic-angular';
-import {ExpenseService} from "../../services/expense.services";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import {AuthProvider} from "../../providers/auth/auth";
