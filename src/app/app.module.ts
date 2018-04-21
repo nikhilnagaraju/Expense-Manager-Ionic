@@ -17,6 +17,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 // import {AngularFireAuth} from "angularfire2/auth";
 import { AuthProvider } from '../providers/auth/auth';
 import { FirestoreProvider } from '../providers/firestore/firestore';
+import { Dialogs } from '@ionic-native/dialogs';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyAV0pXv7j4Mhd32W5-yk27IFEvr_4AghyI",
@@ -57,7 +58,8 @@ export const firebaseConfig = {
     AuthProvider,
     GooglePlus,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FirestoreProvider
+    FirestoreProvider,
+    Dialogs,
   ]
 })
 export class AppModule {}

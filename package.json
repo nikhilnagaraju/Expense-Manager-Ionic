@@ -22,12 +22,15 @@
     "@angular/platform-browser": "5.2.9",
     "@angular/platform-browser-dynamic": "5.2.9",
     "@ionic-native/core": "4.6.0",
+    "@ionic-native/dialogs": "^4.7.0",
+    "@ionic-native/google-plus": "latest",
     "@ionic-native/splash-screen": "4.6.0",
     "@ionic-native/status-bar": "4.6.0",
     "@ionic/storage": "2.1.3",
     "angularfire2": "^5.0.0-rc.6.0",
     "cordova-android": "7.0.0",
     "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-dialogs": "^2.0.1",
     "cordova-plugin-googleplus": "^5.3.0",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.2.0",
@@ -38,8 +41,7 @@
     "ionicons": "3.0.0",
     "rxjs": "5.5.8",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.26",
-    "@ionic-native/google-plus": "latest"
+    "zone.js": "0.8.26"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
@@ -55,7 +57,8 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-googleplus": {
         "97639711298-N349NH9A8JN6427Q84OIH09JTSTK48BE.APPS.GOOGLEUSERCONTENT.COM": "myreversedclientid"
-      }
+      },
+      "cordova-plugin-dialogs": {}
     },
     "platforms": [
       "android"
