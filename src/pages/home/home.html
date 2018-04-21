@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
       Expense Manager
     </ion-title>
@@ -13,7 +13,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding text-center="true">
+<ion-content padding >
   <!--Managing expense in a hassle free way.-->
 
   <!--<p>-->
@@ -35,7 +35,6 @@
           <ion-fab middle center (click)="onClickNewExpense()">
             <button ion-fab ><ion-icon name="add"></ion-icon></button>
           </ion-fab>
-          <!--<ion-card> </ion-card>-->
         </ion-col>
       </ion-row>
     </div>
@@ -44,22 +43,19 @@
 
 
 
+  <ion-card class="lesspadding" item-left *ngFor="let expense of expenseList | async" (click)="showexpense(expense)">
 
-  <ion-card>
-    <ion-card-header> Card Header </ion-card-header>
-    <ion-card-content> Total Amt in Rs. </ion-card-content>
+    <ion-item>
+      <span item-start>{{ expense.title }} - </span>
+      <button ion-button outline item-end> ₹ {{ expense.amount }} </button>
+    </ion-item>
+
+    <!--<ion-row >-->
+    <!--<ion-col item-left> {{ expense.title }} - </ion-col>-->
+      <!--<ion-col item-end> ₹ {{ expense.amount }} </ion-col>-->
+    <!--</ion-row>-->
+
   </ion-card>
 
-
-
-  <ion-list>
-    <ion-item *ngFor="let expense of expenses">{{ expense.title }}</ion-item>
-  </ion-list>
-
-  <!--<ion-fab right bottom>-->
-    <!--<button ion-fab ><ion-icon name="add"></ion-icon></button>-->
-  <!--</ion-fab>-->
-
-  <!--<button (click)="onClickNewExpense()" ion-button> Add new Expense</button>-->
 
 </ion-content>

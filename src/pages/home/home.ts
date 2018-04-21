@@ -5,6 +5,7 @@ import {ExpenseService} from "../../services/expense.services";
 import { AuthProvider } from './../../providers/auth/auth';
 import { GooglePlus } from '@ionic-native/google-plus';
 import firebase from 'firebase';
+import { Dialogs } from '@ionic-native/dialogs';
 
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Observable } from 'rxjs/Observable';
@@ -22,13 +23,13 @@ export class HomePage {
     this.navCtrl.push('ProfilePage');
   }
 
-  expenses: {title: string, amount: number}[] = [];
-  constructor(public navCtrl: NavController, private expenseService : ExpenseService, public authProvider: AuthProvider, public firestoreProvider: FirestoreProvider) {
+  // expenses: {title: string, amount: number}[] = [];
+  constructor(public navCtrl: NavController, private expenseService : ExpenseService, public authProvider: AuthProvider, public firestoreProvider: FirestoreProvider, private dialogs: Dialogs) {
 
   }
 
   ionViewWillEnter(){
-    this.expenses = this.expenseService.getExpenses();
+    // this.expenses = this.expenseService.getExpenses();
     let simple = JSON.parse(JSON.stringify(this.authProvider.getUser()));
     console.log('uid of user in home : '+simple["uid"]);
   }
@@ -42,6 +43,9 @@ export class HomePage {
     this.navCtrl.push(NewExpensePage);
   }
 
-
+  showexpense(expenseparam: Expense): void{
+    this.navCtrl.push('DetailPage', { expenseparam});
+    console.log(' title ' + expenseparam.title + ' amount ' + expenseparam.amount  + ' id ' + expenseparam.id);
+  }
 
 }

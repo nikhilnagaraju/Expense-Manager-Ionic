@@ -43,11 +43,11 @@ export class NewExpensePage {
 
     const loading: Loading = this.loadingCtrl.create();
     loading.present();
-    const expenseTitle = this.addExpenseForm.value.expenseTitle;
-    const expenseAmount = this.addExpenseForm.value.expenseAmount;
+    const title = this.addExpenseForm.value.expenseTitle;
+    const amount = this.addExpenseForm.value.expenseAmount;
 
     this.firestoreProvider
-      .createExpense(expenseTitle, expenseAmount, this.userIdinfo)
+      .createExpense(title, amount, this.userIdinfo)
       .then(
         () => {
           loading.dismiss().then(() => {

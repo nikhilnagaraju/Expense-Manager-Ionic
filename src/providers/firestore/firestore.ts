@@ -18,16 +18,16 @@ export class FirestoreProvider {
   }
 
   createExpense(
-    expenseTitle: string,
-    expenseAmount: number,
+    title: string,
+    amount: number,
     collectionName: string
   ): Promise<void> {
     const id = this.firestore.createId();
 
     return this.firestore.doc(`${collectionName}/${id}`).set({
       id,
-      expenseTitle,
-      expenseAmount,
+      title,
+      amount,
     });
   }
 

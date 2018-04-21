@@ -1,5 +1,9 @@
 page-home {
 
+  .lesspadding {
+    padding: 4px !important;
+  }
+
 
 }
 
@@ -9,6 +13,7 @@ page-home {
     max-width: 50%;
     height: available;
     padding: 5px 0;
+    text-align: center;
 
   }
   .row {
