@@ -16,6 +16,7 @@ import { GooglePlus } from '@ionic-native/google-plus';
 import { AuthProvider } from '../providers/auth/auth';
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { Dialogs } from '@ionic-native/dialogs';
+import {LoginPage} from "../pages/login/login";
 
 
 //firebase config credentials for the project
@@ -32,6 +33,7 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
+    LoginPage,
     NewExpensePage,
   ],
   imports: [
@@ -47,6 +49,7 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     NewExpensePage,
+    LoginPage,
   ],
   providers: [
     StatusBar,
