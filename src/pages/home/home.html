@@ -24,6 +24,8 @@
 
     <div class="grid-full">
       <ion-row>
+
+        <!--TODO show sum of all expenses-->
         <ion-col>
           <ion-card>
                 <h1 > ₹ 1200</h1>
@@ -31,6 +33,7 @@
           </ion-card>
         </ion-col>
 
+        <!--button to add new Expense to firestore-->
         <ion-col >
           <ion-fab middle center (click)="onClickNewExpense()">
             <button ion-fab ><ion-icon name="add"></ion-icon></button>
@@ -42,7 +45,7 @@
   </div>
 
 
-
+  <!--get initialized expenseList Observable and populate the list-->
   <ion-card class="lesspadding" item-left *ngFor="let expense of expenseList | async" (click)="showexpense(expense)">
 
     <ion-item>

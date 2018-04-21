@@ -17,9 +17,10 @@ export class ProfilePage {
     public authProvider: AuthProvider
   ) {}
 
+  //logout helper function
   logout(){
     this.authProvider.googlelogout().then(() =>{
-      this.navCtrl.popToRoot()
+      this.navCtrl.popToRoot(); // goto root page on logout
     });
   }
 

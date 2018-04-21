@@ -18,7 +18,7 @@ import {AuthProvider} from "../../providers/auth/auth";
 })
 export class NewExpensePage {
 
-
+  //formgroup obj for taking inputs
   public addExpenseForm: FormGroup;
   public userIdinfo: string;
 
@@ -30,6 +30,7 @@ export class NewExpensePage {
                public authProvider: AuthProvider,
                formBuilder: FormBuilder
     ) {
+    //form inputs validations
     this.addExpenseForm = formBuilder.group({
       expenseTitle: ['', Validators.required],
       expenseAmount: ['', Validators.required],
@@ -38,10 +39,11 @@ export class NewExpensePage {
     this.userIdinfo = simple["uid"];
   }
 
+  //add an expense to Cloud firestore db with
   addExpense(): void {
 
     const loading: Loading = this.loadingCtrl.create();
-    loading.present();
+    loading.present();//show simple loader
     const title = this.addExpenseForm.value.expenseTitle;
     const amount = this.addExpenseForm.value.expenseAmount;
 
@@ -49,12 +51,14 @@ export class NewExpensePage {
       .createExpense(title, amount, this.userIdinfo)
       .then(
         () => {
+          //on promise resolved hide loader
           loading.dismiss().then(() => {
+            // on promise resolved, pop/goto to home page
             this.navCtrl.pop();
           });
         },
         error => {
-          loading.dismiss().then(() => {
+          loading.dismiss().then(() => { //handle error with alert
             const alert: Alert = this.alertCtrl.create({
               message: error.message,
               buttons: [{ text: 'Ok', role: 'cancel' }],

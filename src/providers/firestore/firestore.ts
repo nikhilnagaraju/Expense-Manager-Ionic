@@ -22,8 +22,10 @@ export class FirestoreProvider {
     amount: number,
     collectionName: string
   ): Promise<void> {
+    //create a random ID fr document
     const id = this.firestore.createId();
 
+    //operate on firestore collection with UserID as collectionName
     return this.firestore.doc(`${collectionName}/${id}`).set({
       id,
       title,
@@ -31,10 +33,12 @@ export class FirestoreProvider {
     });
   }
 
+  //get all documents in collection (userid) and map each to expense model
   getExpenseList(collectionName : string): AngularFirestoreCollection<Expense> {
     return this.firestore.collection(`${collectionName}`);
   }
 
+  //delete a expense based on documentid
   deleteExpense(documentId: string, collectionName: string): Promise<void> {
     return this.firestore.doc(`${collectionName}/${documentId}`).delete();
   }

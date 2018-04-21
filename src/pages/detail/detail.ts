@@ -28,6 +28,7 @@ export class DetailPage {
     console.log('ionViewDidLoad DetailPage');
   }
 
+  //helper function to delete with alert dialog
   deleteExpense(docId: string, expenseTitle: string): void {
     const alert: Alert = this.alertCtrl.create({
       message: `Are you sure you want to delete <b>${expenseTitle}</b> from your list?`,
@@ -41,6 +42,7 @@ export class DetailPage {
         {
           text: 'OK',
           handler: () => {
+              //delete function from firestoreprovider takes userid and documentid to be deleted
               this.firestoreProvider.deleteExpense(docId, this.getUserid()).then(() => {
               this.navCtrl.pop();
             });
@@ -51,6 +53,7 @@ export class DetailPage {
     alert.present();
   }
 
+  //returns unique userid of logged user through authProvider
   getUserid() : string{
     let simple = JSON.parse(JSON.stringify(this.authProvider.getUser()));
     return simple["uid"];

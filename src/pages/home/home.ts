@@ -19,17 +19,16 @@ export class HomePage {
   goToProfile():void {
     this.navCtrl.push('ProfilePage');
   }
-
+  //reference authprovider and firestore Database provider
   constructor(public navCtrl: NavController, public authProvider: AuthProvider, public firestoreProvider: FirestoreProvider, private dialogs: Dialogs) {
 
   }
 
   ionViewWillEnter(){
-    let simple = JSON.parse(JSON.stringify(this.authProvider.getUser()));
-    console.log('uid of user in home : '+simple["uid"]);
   }
 
   ionViewDidLoad() {
+    //get observable for the firestore collection based on userID
     let simple = JSON.parse(JSON.stringify(this.authProvider.getUser()));
     this.expenseList = this.firestoreProvider.getExpenseList(simple["uid"]).valueChanges();
   }
@@ -38,6 +37,7 @@ export class HomePage {
     this.navCtrl.push(NewExpensePage);
   }
 
+  //move to details page with expense obj
   showexpense(expenseparam: Expense): void{
     this.navCtrl.push('DetailPage', { expenseparam});
     console.log(' title ' + expenseparam.title + ' amount ' + expenseparam.amount  + ' id ' + expenseparam.id);

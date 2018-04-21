@@ -12,14 +12,14 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content text-center="" padding>
+<ion-content text-center padding>
   <h3> You spent ₹ {{ expense.amount}}</h3>
   <p>
     for {{expense.title}}
   </p>
 
 
-
+  <!--button to delete from firestore-->
   <button ion-button  icon-left  style="text-transform: none;" (click)="deleteExpense(expense.id, expense.title)" >
     <ion-icon  name="trash"></ion-icon>
     <p>  Delete Expense</p>

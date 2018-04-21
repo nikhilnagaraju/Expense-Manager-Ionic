@@ -23,6 +23,7 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  //helper function to login to google using auth Provider
   googleLogin(): void {
     this.authProvider.googleLogin();
   }

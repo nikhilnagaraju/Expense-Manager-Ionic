@@ -17,6 +17,8 @@ import { AuthProvider } from '../providers/auth/auth';
 import { FirestoreProvider } from '../providers/firestore/firestore';
 import { Dialogs } from '@ionic-native/dialogs';
 
+
+//firebase config credentials for the project
 export const firebaseConfig = {
   apiKey: "AIzaSyAV0pXv7j4Mhd32W5-yk27IFEvr_4AghyI",
   authDomain: "expense-manager-f7ab1.firebaseapp.com",
@@ -50,9 +52,9 @@ export const firebaseConfig = {
     StatusBar,
     SplashScreen,
     ExpenseService,
-    AuthProvider,
+    AuthProvider,  //auth provider for managing authentication
     GooglePlus,
-    FirestoreProvider,
+    FirestoreProvider,    //firestore for operating on Firebase Cloud Firestore
     Dialogs,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
