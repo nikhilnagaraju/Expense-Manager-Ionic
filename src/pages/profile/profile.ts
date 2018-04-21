@@ -17,9 +17,11 @@ export class ProfilePage {
     public authProvider: AuthProvider
   ) {}
 
-  // logout(){
-  //   this.authProvider.googlelogout();
-  // }
+  logout(){
+    this.authProvider.googlelogout().then(() =>{
+      this.navCtrl.popToRoot()
+    });
+  }
 
   ionViewDidLoad() {
     this.userProfile = this.authProvider.getUser();

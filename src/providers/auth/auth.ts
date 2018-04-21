@@ -21,9 +21,7 @@ export class AuthProvider {
         offline: true
       })
       .then(res => {
-        const credential = firebase.auth.GoogleAuthProvider.credential(
-          res.idToken
-        );
+        const credential = firebase.auth.GoogleAuthProvider.credential( res.idToken );
         this.afAuth.auth
           .signInWithCredential(credential)
           .then(success => {
@@ -36,7 +34,8 @@ export class AuthProvider {
       .catch(err => console.error('Error: ', err));
   }
 
-  // googlelogout(): Promise<any>  {
-  //   return this.googlePlus.logout().then(() => this.afAuth = null);
-  // }
+  googlelogout(): Promise<any>  {
+    console.log("inside auth function");
+    return this.googlePlus.logout().then(() => this.afAuth = null);
+  }
 }
