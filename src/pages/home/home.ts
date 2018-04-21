@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {NewExpensePage} from "../new-expense/new-expense";
 import { AuthProvider } from '../../providers/auth/auth';
-import { Dialogs } from '@ionic-native/dialogs';
 
 import { FirestoreProvider } from '../../providers/firestore/firestore';
 import { Observable } from 'rxjs/Observable';
@@ -20,7 +19,7 @@ export class HomePage {
     this.navCtrl.push('ProfilePage');
   }
   //reference authprovider and firestore Database provider
-  constructor(public navCtrl: NavController, public authProvider: AuthProvider, public firestoreProvider: FirestoreProvider, private dialogs: Dialogs) {
+  constructor(public navCtrl: NavController, public authProvider: AuthProvider, public firestoreProvider: FirestoreProvider) {
 
   }
 

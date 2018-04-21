@@ -4,8 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import {LoginPage} from "../pages/login/login"
-  ;
+import {LoginPage} from "../pages/login/login";
 import {AngularFireAuth} from "angularfire2/auth";
 @Component({
   templateUrl: 'app.html'
@@ -19,7 +18,7 @@ export class MyApp {
       if (user){
         this.rootPage = HomePage;
       } else {
-        this.rootPage = 'LoginPage';
+        this.rootPage = LoginPage;
       }
     });
 
