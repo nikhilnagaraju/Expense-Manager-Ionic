@@ -25,10 +25,10 @@
     <div class="grid-full">
       <ion-row>
 
-        <!--TODO show sum of all expenses-->
+
         <ion-col>
           <ion-card>
-                <h1 > ₹ 1200</h1>
+                <h1 > ₹ {{totalamount}}</h1>
             <p>Total Expense</p>
           </ion-card>
         </ion-col>
@@ -45,15 +45,16 @@
   </div>
 
 
+  <br>
   <!--get initialized expenseList Observable and populate the list-->
-  <ion-card class="lesspadding" item-left *ngFor="let expense of expenseList | async" (click)="showexpense(expense)">
+  <ion-list  *ngFor="let expense of expenseList | async" (click)="showexpense(expense)">
 
     <ion-item>
-      <span item-start>{{ expense.title }}  </span>
-      <button ion-button outline item-end> ₹ {{ expense.amount }} </button>
+      <p item-start>{{ expense.title }}  </p>
+      <ion-badge color="badgegreen" item-end> ₹ {{ expense.amount }} </ion-badge>
     </ion-item>
 
-  </ion-card>
+  </ion-list>
 
 
 </ion-content>

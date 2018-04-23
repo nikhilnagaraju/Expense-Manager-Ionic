@@ -14,6 +14,7 @@ import {Expense} from "../../models/expense.interface";
 export class HomePage {
   userProfile: any = null;
   public expenseList: Observable<Expense[]>;
+  totalamount: number =0; //initializing default value for total
 
   goToProfile():void {
     this.navCtrl.push('ProfilePage');
@@ -30,6 +31,13 @@ export class HomePage {
     //get observable for the firestore collection based on userID
     let simple = JSON.parse(JSON.stringify(this.authProvider.getUser()));
     this.expenseList = this.firestoreProvider.getExpenseList(simple["uid"]).valueChanges();
+    this.expenseList.subscribe(val => {
+      let amountarray: number[] = [];
+      val.map((obj) => {
+        amountarray.push(obj.amount);
+      });
+      this.totalamount = amountarray.reduce((a, b) => +a + +b, +0); // prefixing '+' before numbers to sumup
+    });
   }
 
   onClickNewExpense(){
