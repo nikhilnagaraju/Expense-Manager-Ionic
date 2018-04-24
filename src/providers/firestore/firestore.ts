@@ -19,6 +19,7 @@ export class FirestoreProvider {
   createExpense(
     title: string,
     amount: number,
+    cash_expense: boolean,
     collectionName: string
   ): Promise<void> {
     //create a random ID fr document
@@ -29,6 +30,7 @@ export class FirestoreProvider {
       id,
       title,
       amount,
+      cash_expense,
     });
   }
 

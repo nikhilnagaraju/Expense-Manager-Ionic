@@ -18,6 +18,11 @@
     Add your expense with appropriate title/description.
   </p>
 
+  <ion-item>
+    <ion-label>Paid by Cash</ion-label>
+    <ion-checkbox [(ngModel)]="expenseType" item-right></ion-checkbox>
+  </ion-item>
+
   <form [formGroup]="addExpenseForm" (submit)="addExpense()" novalidate>
 
     <ion-item >

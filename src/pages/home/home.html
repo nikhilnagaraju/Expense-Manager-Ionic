@@ -28,7 +28,7 @@
 
         <ion-col>
           <ion-card>
-                <h1 > ₹ {{totalamount}}</h1>
+            <h1 ><span style="font-size:large;"> ₹ </span>{{totalamount}}</h1>
             <p>Total Expense</p>
           </ion-card>
         </ion-col>
@@ -52,6 +52,11 @@
     <ion-item>
       <p item-start>{{ expense.title }}  </p>
       <ion-badge color="badgegreen" item-end> ₹ {{ expense.amount }} </ion-badge>
+
+      <span item-end *ngIf="expense.cash_expense;then cashicon else cardicon"></span>
+      <ng-template #cashicon><ion-icon color="cashcolor" name="ios-cash" item-end></ion-icon></ng-template>
+      <ng-template #cardicon><ion-icon color="cardcolor" name="ios-card" item-end></ion-icon></ng-template>
+
     </ion-item>
 
   </ion-list>

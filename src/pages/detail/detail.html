@@ -13,14 +13,18 @@
 </ion-header>
 
 <ion-content text-center padding>
-  <h3> You spent ₹ {{ expense.amount}}</h3>
+  <h3> You spent ₹ {{ expense.amount}} <span *ngIf="expense.cash_expense;then cashtext else cardtext"></span> </h3>
+
+  <ng-template #cashtext> Cash </ng-template>
+  <ng-template #cardtext>using Card</ng-template>
+
   <p>
     for {{expense.title}}
   </p>
 
 
   <!--button to delete from firestore-->
-  <button ion-button  icon-left  style="text-transform: none;" (click)="deleteExpense(expense.id, expense.title)" >
+  <button color="danger" ion-button  icon-left  style="text-transform: none;" (click)="deleteExpense(expense.id, expense.title)" >
     <ion-icon  name="trash"></ion-icon>
     <p>  Delete Expense</p>
   </button>
